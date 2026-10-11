@@ -72,14 +72,12 @@ export const register: Register = on => {
   // Pick the model for the person's own prompts.
   on('prompt.submit', async ($, e, next) => {
     if (e.origin.kind !== 'composer' || !(await read($, enabled))) return next(e)
-    if (e.text.startsWith('~')) {
-      turnModel = undefined
-      return next({ ...e, text: e.text.slice(1).trimStart() })
-    }
-    const verdict = classify(e.text)
+    const skip = e.text.startsWith('~')
+    const verdict = skip ? null : classify(e.text)
     turnModel = verdict?.model
-    if (verdict) await update($, last, () => ({ where: 'prompt', model: verdict.model, reason: verdict.reason }))
-    return next(e)
+    // Always overwrite, so a prompt with no pick never shows the previous prompt's model.
+    await update($, last, () => (verdict ? { where: 'prompt', model: verdict.model, reason: verdict.reason } : null))
+    return next(skip ? { ...e, text: e.text.slice(1).trimStart() } : e)
   }).catch(($, e, next) => next(e))
 
   // Run each step of the main reply on the picked model. Subagents are routed below.
@@ -110,17 +108,18 @@ export const register: Register = on => {
     const rest = await next(e)
     if (e.props.hasSurvey) return rest
 
-    const { Box, Select, Text } = $.ui.resolve(e)
+    const { Box, Select } = $.ui.resolve(e)
     const isOn = await read($, enabled)
     const route = await read($, last)
 
     return (
-      <Box>
+      <Box flexDirection="row" flexWrap="wrap" alignItems="center" columnGap={2}>
         <Select
           key="router"
           label="Router"
           options={[
-            { value: 'auto', label: 'Auto' },
+            // The picked model rides in the option label so the strip stays one row.
+            { value: 'auto', label: route?.where === 'prompt' ? `Auto · ${NAME[route.model]}` : 'Auto' },
             { value: 'off', label: 'Off' },
           ]}
           value={isOn ? 'auto' : 'off'}
@@ -129,10 +128,6 @@ export const register: Register = on => {
             await save($)
           }}
         />
-        {isOn && route ? (
-          <Text dimColor> → {NAME[route.model]} ({route.where === 'prompt' ? route.reason : route.where})</Text>
-        ) : null}
-        <Text>  </Text>
         {rest}
       </Box>
     )

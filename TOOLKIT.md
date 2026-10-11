@@ -67,7 +67,7 @@ Swarm specialists get fixed defaults: `researcher`, `data-analyst`, `docs-writer
 **Setup:** `claude plugin install model-router@claude-toolkit`
 
 **Use:**
-- The **Router: Auto / Off** dropdown sits above the chat box and shows the last choice, for example `→ Sonnet (swarm:researcher)`.
+- The **Router: Auto / Off** dropdown sits above the chat box and shows the model picked for your last prompt, for example `Auto · Opus`; it shows plain `Auto` when the prompt gave no clear signal.
 - `/router` shows the full table.
 - `/router set swarm:docs-writer opus` changes one specialist; `/router set swarm:docs-writer default` resets it.
 - Start a prompt with `~` to skip routing once.
