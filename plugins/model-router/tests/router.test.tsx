@@ -58,3 +58,22 @@ test('every subagent gets a model, swarm specialists by type, explicit choices w
   await spawn($, { subagent_type: 'swarm:researcher' })
   expect(launched.at(-1)).toBeUndefined()
 })
+
+test('the strip shows only the current prompt\'s pick, never a stale one', async ($, on) => {
+  on('prompt.submit', ($, e) => ({ text: e.text }))
+  on('ui.render', ($, e) => {
+    const { Box } = $.ui.resolve(e)
+    return <Box />
+  })
+  const origin = { kind: 'composer' } as never
+  const label = async () => {
+    const strip = await $.ui.mount({ plugin: 'model-router', surface: 'desktop', component: 'AbovePrompt', props: PROPS })
+    const sel = (await strip.find({ key: 'router' })) as any
+    await strip.unmount()
+    return sel.props.options[0].label
+  }
+  await $.prompt.submit({ text: 'debug why the checkout test is failing', origin } as never)
+  expect(await label()).toBe('Auto · Opus')
+  await $.prompt.submit({ text: 'hi again', origin } as never)
+  expect(await label()).toBe('Auto')
+})
