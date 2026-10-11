@@ -1,0 +1,9 @@
+{
+  "name": "swarm",
+  "version": "0.2.4",
+  "description": "An OpenSwarm-style team: /swarm hands one request to specialist agents (research, data analysis, slides, documents, images, video), shows their progress live in a panel, and collects the deliverables in one folder with a gallery page.",
+  "author": {
+    "name": "Benjamin"
+  },
+  "types": "./types/index.d.ts"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "toolkit-setup",
+  "displayName": "Toolkit Setup",
+  "version": "0.1.0",
+  "description": "/toolkit-setup checks a machine and lists every install step, login and API key the toolkit needs, without ever asking for key values in chat.",
+  "author": { "name": "Benjamin" }
+}

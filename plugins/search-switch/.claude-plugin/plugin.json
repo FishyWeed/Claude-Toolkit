@@ -1,0 +1,8 @@
+{
+  "name": "search-switch",
+  "displayName": "Search Switch",
+  "version": "0.1.0",
+  "description": "A Search dropdown above the prompt: Native (WebSearch/WebFetch) or Exa / Firecrawl. Claude is told which to use, and the other side's tools are blocked.",
+  "types": "./types/index.d.ts",
+  "author": { "name": "Benjamin" }
+}

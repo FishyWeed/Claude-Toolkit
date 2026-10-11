@@ -1,0 +1,6 @@
+{
+  "name": "prompt-enhancer",
+  "version": "0.1.1",
+  "description": "Adds an Enhance button above the prompt box that rewrites your draft into a clearer prompt without sending it.",
+  "types": "./types/index.d.ts"
+}

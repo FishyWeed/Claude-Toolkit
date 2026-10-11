@@ -1,0 +1,54 @@
+{
+  "name": "claude-toolkit",
+  "description": "Benjamin's Claude Code toolkit: mods, skills and an output style.",
+  "owner": {
+    "name": "Benjamin"
+  },
+  "plugins": [
+    {
+      "name": "clear-caveman",
+      "source": "./plugins/clear-caveman",
+      "description": "Terse like Caveman, clear like Clear Answers: short plain replies, exact technical details, and one self-contained wrap-up after multi-step work."
+    },
+    {
+      "name": "codeburn",
+      "source": "./plugins/codeburn",
+      "description": "/codeburn runs CodeBurn (read-only) on your session logs and reports where tokens and money go, with fixes."
+    },
+    {
+      "name": "design-directions",
+      "source": "./plugins/design-directions",
+      "description": "When you ask for a design system from scratch, Claude proposes three distinct, visually rendered directions to pick from instead of asking open-ended questions."
+    },
+    {
+      "name": "model-router",
+      "source": "./plugins/model-router",
+      "description": "Picks Haiku, Sonnet or Opus for each prompt and each subagent (swarm specialists included), with an Auto/Off dropdown above the prompt."
+    },
+    {
+      "name": "mods-skills-panel",
+      "source": "./plugins/mods-skills-panel",
+      "description": "A side panel listing your Claude Mods and Skills, how often each is used, which model each runs on, and what each does."
+    },
+    {
+      "name": "prompt-enhancer",
+      "source": "./plugins/prompt-enhancer",
+      "description": "Adds an Enhance button above the prompt box that rewrites your draft into a clearer prompt without sending it."
+    },
+    {
+      "name": "search-switch",
+      "source": "./plugins/search-switch",
+      "description": "A Search dropdown above the prompt: Native (WebSearch/WebFetch) or Exa / Firecrawl. Claude is told which to use, and the other side's tools are blocked."
+    },
+    {
+      "name": "swarm",
+      "source": "./plugins/swarm",
+      "description": "An OpenSwarm-style team: /swarm hands one request to specialist agents (research, data analysis, slides, documents, images, video), shows their progress live in a panel, and collects the deliverables in one folder with a gallery page."
+    },
+    {
+      "name": "toolkit-setup",
+      "source": "./plugins/toolkit-setup",
+      "description": "/toolkit-setup checks a machine and lists every install step, login and API key the toolkit needs, without ever asking for key values in chat."
+    }
+  ]
+}

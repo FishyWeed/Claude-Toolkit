@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "swarm-kit"
+version = "0.2.4"
+description = "Shared builders for the swarm plugin's specialists: themed decks, documents, videos and a deliverables gallery."
+requires-python = ">=3.10"
+dependencies = [
+  "python-pptx>=1.0",
+  "python-docx>=1.1",
+  "pillow>=10",
+  "matplotlib>=3.8",
+  "pandas>=2.1",
+  "openpyxl>=3.1",
+  "scipy>=1.11",
+  "statsmodels>=0.14",
+]
+
+[project.scripts]
+swarm-kit = "swarm_kit.__main__:main"
+
+[tool.setuptools]
+packages = ["swarm_kit"]

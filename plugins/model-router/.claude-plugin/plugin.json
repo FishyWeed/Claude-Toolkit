@@ -1,0 +1,8 @@
+{
+  "name": "model-router",
+  "displayName": "Model Router",
+  "version": "0.1.0",
+  "description": "Picks Haiku, Sonnet or Opus for each prompt and each subagent (swarm specialists included), with an Auto/Off dropdown above the prompt.",
+  "types": "./types/index.d.ts",
+  "author": { "name": "Benjamin" }
+}

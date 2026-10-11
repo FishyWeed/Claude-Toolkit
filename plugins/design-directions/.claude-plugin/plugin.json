@@ -1,0 +1,5 @@
+{
+  "name": "design-directions",
+  "version": "0.1.0",
+  "description": "When you ask for a design system from scratch, Claude proposes three distinct, visually rendered directions to pick from instead of asking open-ended questions."
+}

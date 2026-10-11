@@ -1,0 +1,9 @@
+{
+  "name": "codeburn",
+  "displayName": "CodeBurn report",
+  "version": "0.1.0",
+  "description": "/codeburn runs CodeBurn (read-only) on your session logs and reports where tokens and money go, with fixes.",
+  "author": {
+    "name": "Benjamin"
+  }
+}

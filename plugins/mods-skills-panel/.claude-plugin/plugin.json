@@ -1,0 +1,9 @@
+{
+  "name": "mods-skills-panel",
+  "version": "0.3.1",
+  "description": "A side panel listing your Claude Mods and Skills, how often each is used, which model each runs on, and what each does.",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "Benjamin"
+  }
+}

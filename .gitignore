@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+.claude-plugin/types/
+plugins/*/.claude-plugin/types/
+.firecrawl/
+graphify-out/
+*.log
+.env
+.env.*
+*.key
+settings.local.json
